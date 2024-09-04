@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +5,7 @@
     <title>Casino Prime</title>
     <style>
         body {
-            background-image: url('https://canalc.com.ar/wp-content/uploads/2024/06/casino-dados.jpg');
+            background-image: url('https://resizer.iproimg.com/unsafe/1280x/filters:format(webp):quality(70)/assets.iprofesional.com/assets/jpg/2023/08/558175.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -23,10 +22,12 @@
         }
 
         .content {
-            background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para mejor legibilidad */
+            background-color: rgba(0, 0, 0, 0.7);
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            max-width: 90%;
+            width: 400px;
         }
 
         h1 {
@@ -50,18 +51,137 @@
             border-radius: 5px;
             display: inline-block;
             box-shadow: 2px 2px 5px #000000;
+            transition: background-color 0.3s ease;
         }
 
         .whatsapp-button:hover {
             background-color: #20b858;
+        }
+
+        /* Estilo del botón Crear Usuario */
+        .create-user-button {
+            background-color: #f39c12;
+            color: white;
+            font-size: 24px;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 2px 2px 5px #000000;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .create-user-button:hover {
+            background-color: #e67e22;
+            transform: scale(1.1); /* Animación hover */
+        }
+
+        /* Animación del formulario emergente */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #user-form {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        #user-form input {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        #user-form button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #user-form button:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .whatsapp-button, .create-user-button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="content">
         <h1>Bienvenido a Casino Prime</h1>
-        <p>¡Vive la mejor experiencia de casino en línea!</p>
-        <a href="https://wa.me/1234567890" class="whatsapp-button" target="_blank">Contáctanos en WhatsApp</a>
+        <p>💰$1200 GRATIS + 10% BONUS EN TU PRIMER CARGA!💰</p>
+        <div class="create-user-button" id="open-form">Crear Usuario</div>
     </div>
+
+    <!-- Formulario emergente -->
+    <div id="overlay">
+        <div id="user-form">
+            <h2>Crear Usuario</h2>
+            <input type="text" id="user-name" placeholder="Ingresa tu nombre">
+            <button id="submit-button">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        // Mostrar formulario emergente
+        document.getElementById('open-form').addEventListener('click', function() {
+            document.getElementById('overlay').style.display = 'flex';
+        });
+
+        // Obtener el nombre y redirigir a WhatsApp
+        document.getElementById('submit-button').addEventListener('click', function() {
+            var userName = document.getElementById('user-name').value;
+            if (userName) {
+                // Redirige a WhatsApp con el nombre del usuario
+                var whatsappUrl = 'https://wa.me/541171751309?text=🎰🎰Buenasss quiero cargar con bonus, mi usuario es Prime' + encodeURIComponent(userName);
+                window.location.href = whatsappUrl;
+            } else {
+                alert('Por favor, ingresa tu nombre.');
+            }
+        });
+    </script>
 </body>
 </html>
